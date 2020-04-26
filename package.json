@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "QuickStart package.json from the documentation, supplemented with testing support",
   "scripts": {
-    "start": "concurrently \"tsc -w\" \"nodemon ./bin/www\" ",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "prod": "NODE_ENV=production ./bin/www",
-    "build:prod": "node bin/bundler.js --prod",
-    "postinstall": "npm run build:prod"
+   "start": "http-server",
+    "lint": "tslint \"src/**/*.ts\"",
+    "test": "ng test",
+    "pree2e": "webdriver-manager update",
+    "e2e": "protractor",
+    "preinstall": "npm install -g angular-cli",
+    "postinstall": "ng build && mv dist/* ."
   },
   "keywords": [],
   "author": "",
